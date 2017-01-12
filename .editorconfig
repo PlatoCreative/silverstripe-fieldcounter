@@ -1,0 +1,15 @@
+# For more information about the properties used in this file,
+# please see the EditorConfig documentation:
+# http://editorconfig.org
+
+[*]
+charset = utf-8
+end_of_line = lf
+indent_size = 4
+indent_style = space
+
+[{*.yml,*.json}]
+indent_size = 2
+
+[{*.scss,*.css,*.html,*.ss,*.rb,*.htaccess}]
+indent_style = tab
