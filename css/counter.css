@@ -1,11 +1,11 @@
 /* MetaData stats */
-span.metastats {
+span.fieldstats {
 	display: block;
 	margin-top: 4px;
 	margin-bottom: 4px;
 	color: #00a651;
 	font-size: 11px;
 }
-span.metastats.over {
+span.fieldstats.over {
 	color: red;
 }
