@@ -9,6 +9,11 @@ TextField::('myfield')->setAttribute('data-fieldcounter', 140);
 If you require different limits change the 140.
 Note: Adding this to a TextareaField prevents new lines.
 
+If you want to prevent more text than your limit, use the built in HTML attribute `maxlength` e.g. 
+```php
+TextField::('myfield')->setAttribute('maxlength', 140);
+```
+
 ### Install
 `$ composer require plato-creative/silverstripe-fieldcounter:1.*`
 
