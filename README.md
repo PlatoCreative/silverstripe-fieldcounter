@@ -15,7 +15,14 @@ TextField::('myfield')->setAttribute('maxlength', 140);
 ```
 
 ### Install
+SilverStripe 3 
+
 `$ composer require plato-creative/silverstripe-fieldcounter:1.*`
+
+SilverStripe 4
+
+`$ composer require plato-creative/silverstripe-fieldcounter:2.*`
+
 
 ### Documentation
 See [Docs](https://github.com/PlatoCreative/silverstripe-fieldcounter/blob/master/docs/en)
