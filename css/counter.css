@@ -9,3 +9,6 @@ span.fieldstats {
 span.fieldstats.over {
 	color: red;
 }
+span.fieldstats.near {
+	color: orange;
+}

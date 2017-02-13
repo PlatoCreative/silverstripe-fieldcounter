@@ -1,5 +1,5 @@
 (function($){
-    
+
 	$.entwine('ss', function($){
 		/* Provide character stats on defined fields */
 		$("input[data-fieldcounter], textarea[data-fieldcounter]").entwine({
@@ -11,8 +11,13 @@
 				if ((e.which && e.which == 13) || (e.keyCode && e.keyCode == 13)) {
 					e.preventDefault();
 				}
-				/* prevent multiple spaces */
-				this.val(this.val().replace(/\s+/g, ' '));
+                var position = e.target.selectionStart;
+                // remove extra spaces at start and end
+                this.val(this.val().replace(/^\s+|\s\s+$/gm," "));
+                // prevent new lines or tabs
+                this.val(this.val().replace(/(\r\n|\n|\r)/g,""));
+                // move cursor back to original postion after trimming
+                e.target.selectionEnd = position;
 			},
 			onmatch: function(){
 				if (!$('#' + this.attr('id') + 'Stats').length) {
@@ -21,17 +26,19 @@
 				this.updateStats();
 			},
 			updateStats: function(){
-				var v = this.val().trim();
-				var chars = v.replace(/\s+/g, ' ').length;
-				var length = this.data('fieldcounter');
-				if (length) {
-					if (chars > length) {
-						$('#' + this.attr('id') + 'Stats').addClass('over');
-					} else {
-						$('#' + this.attr('id') + 'Stats').removeClass('over');
+				var chars = this.val().length;
+				var maxlength = this.data('fieldcounter');
+                var almostAtMax = (80 / 100) * maxlength;
+				if (maxlength) {
+					if (chars >= maxlength) {
+						$('#' + this.attr('id') + 'Stats').addClass('over').removeClass('near');
+					} else if (chars >= almostAtMax) {
+                        $('#' + this.attr('id') + 'Stats').addClass('near');
+                    } else {
+						$('#' + this.attr('id') + 'Stats').removeClass('over').removeClass('near');
 					}
-					var result = length - chars;
-					$('#' + this.attr('id') + 'Stats').html("Character count: <strong>" + result + "</strong>");
+					var result = maxlength-chars;
+					$('#' + this.attr('id') + 'Stats').html("Characters remaining: <strong>" + result + "</strong>");
 				}
 			}
 		});
