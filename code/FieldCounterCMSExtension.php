@@ -1,11 +1,4 @@
 <?php
-
-namespace FieldCounter;
-
-use SilverStripe\Admin\LeftAndMainExtension;
-use SilverStripe\Forms\TextField;
-use SilverStripe\View\Requirements;
-
 class FieldCounterCMSExtension extends LeftAndMainExtension
 {
 
