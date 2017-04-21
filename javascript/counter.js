@@ -17,7 +17,7 @@
                 // prevent new lines or tabs
                 this.val(this.val().replace(/(\r\n|\n|\r)/g,""));
                 // move cursor back to original postion after trimming
-                e.target.selectionEnd = position;
+                //e.target.selectionEnd = position;
 			},
 			onmatch: function(){
 				if (!$('#' + this.attr('id') + 'Stats').length) {
